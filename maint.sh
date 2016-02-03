@@ -18,7 +18,8 @@ try() {
 	fi
 }
 
-try "Check that we can really run commands" "id -a"
+try "Verify up-to-date Portage" "emerge -u portage"
+try "Check for gentoolkit" "emerge -u gentoolkit"
 try "Update all packages" "emerge -uDN --with-bdeps=y --complete-graph @world"
 try "Rebuild preserved libraries" "emerge @preserved-rebuild"
 try "Fix broken reverse-dependencies" "revdep-rebuild"
