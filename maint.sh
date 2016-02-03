@@ -20,6 +20,7 @@ try() {
 
 try "Verify up-to-date Portage" "emerge -1u portage"
 try "Check for gentoolkit" "emerge -1u gentoolkit"
+try "Rebuild packages broken by GCC 5 ABI" "revdep-rebuild --library 'libstdc++.so.6' -- --exclude gcc"
 try "Update all packages" "emerge -uDN --with-bdeps=y --complete-graph @world"
 try "Rebuild preserved libraries" "emerge @preserved-rebuild"
 try "Fix broken reverse-dependencies" "revdep-rebuild"
