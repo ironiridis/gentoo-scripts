@@ -20,7 +20,7 @@ try() {
 
 try "Verify up-to-date Portage" "emerge -1u portage"
 try "Check for gentoolkit" "emerge -1u gentoolkit"
-if [[ $(find /usr/lib*/python3* -name '*cpython-3[3-5].so | wc -l) -gt 0 ]]
+if [[ $(find /usr/lib*/python3* -name '*cpython-3[3-5].so' | wc -l) -gt 0 ]]
 then try "Fix Python 3 ABI bustage" "emerge -1 $(find /usr/lib*/python3* -name '*cpython-3[3-5].so')"
 fi
 try "Update all packages" "emerge -uDN --with-bdeps=y --complete-graph @world"
