@@ -27,4 +27,4 @@ try "Fix outdated Python modules" "python-updater --enable-all"
 try "Fix Perl modules, step 1" "perl-cleaner --modules"
 try "Fix Perl modules, step 2" "perl-cleaner --phall"
 try "Review patched configuration files" "dispatch-conf"
-
+try "Review new news items" "eselect news read new"
